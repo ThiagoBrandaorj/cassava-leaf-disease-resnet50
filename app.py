@@ -105,7 +105,6 @@ def predict(img_pil: Image.Image):
 
 
 # ---------------- Interface ----------------
-st.set_page_config(page_title="Cassava Leaf Disease Classifier", page_icon="🌱", layout="centered")
 
 st.title("🌱 Classificador de Doenças da Mandioca")
 st.markdown(
