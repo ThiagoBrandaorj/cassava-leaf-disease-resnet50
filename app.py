@@ -5,6 +5,35 @@ from PIL import Image
 from huggingface_hub import hf_hub_download
 import keras
 
+# ✅ PRIMEIRA chamada Streamlit do script
+st.set_page_config(
+    page_title="Cassava Leaf Disease Classifier",
+    page_icon="🌱",
+    layout="centered",
+)
+
+
+# ---------------- Config ----------------
+IMG_SIZE = 336
+REPO_ID  = "thiagobrandaooo/cassava_disease"
+FILENAME = "cassava_model.keras"
+
+CLASS_NAMES = [
+    "Cassava Bacterial Blight (CBB)",
+    "Cassava Brown Streak Disease (CBSD)",
+    "Cassava Green Mottle (CGM)",
+    "Cassava Mosaic Disease (CMD)",
+    "Healthy",
+]
+
+CLASS_INFO = {
+    "Cassava Bacterial Blight (CBB)":     "Doença bacteriana que causa murcha e necrose nas folhas.",
+    "Cassava Brown Streak Disease (CBSD)": "Doença viral com manchas amareladas e apodrecimento das raízes.",
+    "Cassava Green Mottle (CGM)":          "Mosaico verde, com manchas verde-claras nas folhas.",
+    "Cassava Mosaic Disease (CMD)":        "Mosaico da mandioca, folhas deformadas e coloração irregular.",
+    "Healthy":                             "Folha saudável, sem sinais de doença.",
+}
+
 # ---------------- Métrica customizada (necessária para o load) ----------------
 @keras.saving.register_keras_serializable(package="Custom")
 class MeanRecall(tf.keras.metrics.Metric):
@@ -36,28 +65,6 @@ class MeanRecall(tf.keras.metrics.Metric):
         base = super().get_config()
         base.update({"num_classes": self.num_classes})
         return base
-
-
-# ---------------- Config ----------------
-IMG_SIZE = 336
-REPO_ID  = "seu-usuario/seu-repo-no-hf"   # <-- ajuste
-FILENAME = "cassava_model.keras"
-
-CLASS_NAMES = [
-    "Cassava Bacterial Blight (CBB)",
-    "Cassava Brown Streak Disease (CBSD)",
-    "Cassava Green Mottle (CGM)",
-    "Cassava Mosaic Disease (CMD)",
-    "Healthy",
-]
-
-CLASS_INFO = {
-    "Cassava Bacterial Blight (CBB)":     "Doença bacteriana que causa murcha e necrose nas folhas.",
-    "Cassava Brown Streak Disease (CBSD)": "Doença viral com manchas amareladas e apodrecimento das raízes.",
-    "Cassava Green Mottle (CGM)":          "Mosaico verde, com manchas verde-claras nas folhas.",
-    "Cassava Mosaic Disease (CMD)":        "Mosaico da mandioca, folhas deformadas e coloração irregular.",
-    "Healthy":                             "Folha saudável, sem sinais de doença.",
-}
 
 
 # ---------------- Carregamento (cacheado) ----------------
