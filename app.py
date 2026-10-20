@@ -71,7 +71,7 @@ def load_model_and_preprocess():
             "Adicione nos Secrets do Streamlit Cloud ou como variável de ambiente."
         )
         st.stop()
-    path = hf_hub_download(repo_id=REPO_ID, filename=FILENAME, token=hf_token)
+    path = hf_hub_download(repo_id="thiagobrandaooo/cassava_disease", filename="cassava_model.keras", token=hf_token)
     model = tf.keras.models.load_model(
         path,
         compile=False,
