@@ -4,6 +4,8 @@ Repository for a notebook from a Deep Learning class (IBMEC).
 
 Pipeline completo de visão computacional que classifica imagens de folhas de mandioca (*cassava*) em **5 categorias** (4 doenças + folha saudável), utilizando *transfer learning* com **ResNet50** pré-treinada na ImageNet. Projeto baseado no dataset da competição Kaggle [Cassava Leaf Disease Classification](https://www.kaggle.com/competitions/cassava-leaf-disease-classification).
 
+Uma pequena aplicação para ser usada pode ser acessada: https://cassava-leaf-disease-resnet50-qbmd4owk4xpfc3btpqem7h.streamlit.app/
+
 ## Grupo
 
 - Thiago Brandão
