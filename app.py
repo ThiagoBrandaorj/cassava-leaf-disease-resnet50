@@ -119,7 +119,7 @@ if uploaded is not None:
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        st.image(img_pil, caption="Imagem enviada", use_container_width=True)
+        st.image(img_pil, caption="Imagem enviada", use_column_width=True)
 
     with st.spinner("Classificando..."):
         probs = predict(img_pil)
